@@ -7,7 +7,9 @@ const { query } = require('express');
 //Create new Product => /api/v1/product/new
 exports.newProduct = catchAsyncErrors (async ( req, res, next) =>
 {
+    
 
+    req.body.user = req.user.id;
     
     const product = await Product.create(req.body)
 
