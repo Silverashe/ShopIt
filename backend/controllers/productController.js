@@ -63,7 +63,6 @@ exports.getSingleProduct = catchAsyncErrors ( async (req, res, next) => {
 exports.getSingleProductByName = catchAsyncErrors (async (req, res, next) => {
 
     const product = await Product.find({ name: req.params.name });
-    console.log(product)
     if(!product || product.length == 0)
     {
         return next( new ErrorHandler('Product Not Found'));
@@ -122,4 +121,97 @@ exports.deleteProduct = catchAsyncErrors (async (req, res, next) => {
 
 
 })
+
+
+//Create new review => /pai/v1/reviews
+exports.createProductReview = catchAsyncErrors (async (req, res, next) => {
+
+    const { rating, comment, productId } = req.body
+
+    const review = {
+        user: req.user._id,
+        name: req.user.name,
+        rating: Number(rating),
+        comment
+    }
+
+    const product = await Product.findById(productId)
+
+    const isReviewed = product.reviews.find(
+       
+        r => r.user.toString() === req.user._id.toString()
+    )
+
+    if(isReviewed) {
+        product.reviews.forEach( review => {
+            if(review.user.toString() === req.user._id.toString()){
+                review.comment = comment;
+                review.rating = rating
+            }
+        });
+    }
+    else
+    {
+        product.reviews.push(review);
+        product.numOfReview = (product.reviews.length + 1)
+    }
+
+    product.ratings = Number(product.reviews.reduce(( acc, item) => item.rating + acc, 0) / product.reviews.length)
+    await product.save()
+
+    res.status(200).json({
+        success: true,
+        message: 'Review has been added'
+     
+    })
+})
+
+//Create new review => /pai/v1/reviews/:id
+exports.getProductReviews = catchAsyncErrors (async (req, res, next) => {
+
+    
+    const product = await Product.findById(req.query.id)
+
+   
+
+    await product.save()
+
+    res.status(200).json({
+        success: true,
+        reviews: product.reviews
+     
+    })
+})
+
+//Delete review => /pai/v1/review/delete
+exports.deleteReview = catchAsyncErrors (async (req, res, next) => {
+
+    
+    const product = await Product.findById(req.query.productId)
+
+    const  reviews = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
+
+    const numOfReview = reviews.length;
+
+    const ratings = product.ratings = Number(product.reviews.reduce(( acc, item) => item.rating + acc, 0) / reviews.length)
+    
+    const updatedProduct = await Product.findByIdAndUpdate(req.query.productId, {
+
+        reviews,
+        ratings, 
+        numOfReview
+    },
+    {
+        new: true,
+        runValidators: true
+    })
+
+    res.status(200).json({
+        success: true,
+        updatedProduct
+        
+     
+    })
+})
+
 

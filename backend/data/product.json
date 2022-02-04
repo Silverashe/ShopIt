@@ -12,7 +12,8 @@
         "seller" : "Ebay",
         "stock" : 50,
         "numOfReviews" : 32,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "CAN USB FD Adapter (GC-CAN-USB-FD)",
@@ -27,7 +28,8 @@
         "seller" : "Amazon",
         "stock" : 0,
         "numOfReviews" : 2,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "CHARMOUNT Full Motion TV Wall Mount Swivel",
@@ -42,7 +44,8 @@
         "seller" : "Amazon",
         "stock" : 1,
         "numOfReviews" : 12,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "Bose QuietComfort 35 II Wireless Bluetooth Headphones",
@@ -57,7 +60,8 @@
         "seller" : "Amazon",
         "stock" : 11,
         "numOfReviews" : 112,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "Apple AirPods with Charging Case (Wired)",
@@ -72,7 +76,8 @@
         "seller" : "Amazon",
         "stock" : 122,
         "numOfReviews" : 2671,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "Cable Boom Microphone - Volume Control for Playstation PS4 or Xbox",
@@ -87,7 +92,8 @@
         "seller" : "Amazon",
         "stock" : 1123,
         "numOfReviews" : 6,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "Nikon D3500 W/ AF-P DX NIKKOR 18-55mm f/3.5-5.6G VR Black ",
@@ -102,7 +108,8 @@
         "seller" : "Amazon",
         "stock" : 131,
         "numOfReviews" : 222,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "Apple MacBook Air (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray ",
@@ -117,7 +124,8 @@
         "seller" : "Amazon",
         "stock" : 0,
         "numOfReviews" : 56,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     },
     {
         "name" : "Kauffman Orchards Homegrown McIntosh Apples",
@@ -142,6 +150,7 @@
         "seller" : "Kauffman's Fruit Farm & Market",
         "stock" : 500,
         "numOfReviews" : 1,
-        "reviews": []
+        "reviews": [],
+        "user": "61f424ab0bcf8d10c4bdc02b"
     }
 ]

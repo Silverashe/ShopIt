@@ -16,7 +16,9 @@ const seedProduct = async () =>{
             await Product.deleteMany();
             console.log('Products are deleted');
 
+           
             await Product.insertMany(products)
+            
             console.log('All products are added');
 
             process.exit();
