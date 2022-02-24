@@ -11,11 +11,11 @@ exports.newProduct = catchAsyncErrors (async ( req, res, next) =>
 
     req.body.user = req.user.id;
     
-    const product = await Product.create(req.body)
+    const products = await Product.create(req.body)
 
     res.status(201).json({
         success: true,
-        product
+        products
     })
 })
 
@@ -24,16 +24,16 @@ exports.getProducts = catchAsyncErrors ( async (req, res, next) => {
 
 
     const resPerPage = 4;
-    const productCount = await Product.countDocuments()
+    const productsCount = await Product.countDocuments()
     const apiFeatures = new APIFeatures(Product.find(), req.query)
                         .search().filter().pagination(resPerPage);
-    const product = await apiFeatures.query
+    const products = await apiFeatures.query
     
     res.status(201).json({
         success: true,
-        count: product.length,
-        productCount,
-        product
+        count: products.length,
+        productsCount,
+        products
     })
 
 
