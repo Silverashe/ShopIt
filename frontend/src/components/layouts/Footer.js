@@ -1,5 +1,5 @@
 import {React, Fragment} from 'react';
-import '../../';
+import '../../App.css';
 
 const Footer = () => {
   return (

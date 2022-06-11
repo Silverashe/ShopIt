@@ -3,9 +3,11 @@ import MetaData from './layouts/MetaData';
 
 import {useDispatch, useSelector} from 'react-redux';
 import Product from './product/Product'
+import Laoder from './layouts/Loader'
 
 import { getProducts } from '../actions/productActions';
 import '../App.css'
+import Loader from './layouts/Loader';
 
 const Home = () => {
 
@@ -20,19 +22,24 @@ const Home = () => {
   return (
 
     <Fragment>
+        {loading ? <Loader/> :(
+          <Fragment>
             <MetaData title={'Buy Best Product Online'}/>
-     
-        <h1 id="products_heading">Latest Products</h1>
-
-        <section id="products" className="container mt-5">
-            <div className="row">
-
-                {products && products.map( product => (
-                       <Product key={product._id} product={product}></Product>
-                ))}
-               
-             </div>
-        </section>
+      
+            <h1 id="products_heading">Latest Products</h1>
+    
+            <section id="products" className="container mt-5">
+                <div className="row">
+    
+                    {products && products.map( product => (
+                          <Product key={product._id} product={product}></Product>
+                    ))}
+                  
+                </div>
+            </section>
+          </Fragment>
+        )}
+        
 
        
 
